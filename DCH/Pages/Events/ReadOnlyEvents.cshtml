@@ -1,0 +1,101 @@
+﻿@page "{source?}"
+@model DCH.Pages.Events.ReadOnlyEventsModel
+@{
+    ViewData["Title"] = "ReadOnlyEvents";
+    var source = Model.Source ?? "NotActor"; 
+}
+<h1>Se alle events</h1>
+
+<div id="search">
+    <form>
+        <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Søg" />
+
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Navn
+            </th>
+            <th>
+                Beskrivelse
+            </th>
+            <th>
+                By
+            </th>
+            <th>
+                Dato/tid
+            </th>
+            <th>
+                Antal tilmeldte
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+            <tr>
+                <td>
+                    @item.Value.Name
+                </td>
+                <td>
+                    @item.Value.Description
+                </td>
+                <td>
+                    @item.Value.City
+                </td>
+                <td>
+                    @item.Value.DateTime
+                </td>
+                <td>
+                    @item.Value.ClickCount / @item.Value.MaxCount
+                </td>
+                @if (source != "actor")
+                {
+  
+                }
+                else
+                {
+                    <td>
+                        <p>
+                        <form method="post" asp-page-handler="Register">
+                            <input type="hidden" name="eventId" value="@item.Key" />
+                            <button type="submit" class="btn btn-success">Tilmeld</button>
+                        </form>
+
+                        <form method="post" asp-page-handler="UndoRegister">
+                            <input type="hidden" name="eventId" value="@item.Key" />
+                            <button type="submit" class="btn btn-danger">Admeld</button>
+                        </form>
+                        
+                            
+                         @* <a asp-page="Register" asp-route-id="@item.Key" class="btn btn-success">Tilmeld</a>  *@
+                        
+                        </p>                  
+                    </td>                    
+                }               
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="back-btn">
+    @if (source == "actor")
+    {
+        <a asp-page="/Actors/Profile" asp-route-source="actor" class="btn btn-primary">Tilbage til din profil</a> 
+    }
+    else
+    {
+               
+    }
+
+</div>
+<div class="bottom img">
+    <img src="~/images/ag.jpg" width="300" height="200"/>
+    <img src="~/images/lydighed.jpg" width="300" height="200" />
+    <img src="~/images/rally.jpg" width="300" height="200" />
+    <img src="~/images/puppy-training.jpg" width="300" height="200" />
+</div>

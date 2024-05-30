@@ -1,0 +1,21 @@
+﻿
+
+@page
+@model DCH.Pages.Login.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+<h2>Profile</h2>
+
+@if (Model.Actor != null)
+{
+    <div>
+        <p><strong>Username:</strong> @Model.Actor.Id</p>
+        <p><strong>Full Name:</strong> @Model.User.FullName</p>
+        <p><strong>Email:</strong> @Model.User.Email</p>
+    </div>
+}
+else
+{
+    <p>User not logged in</p>
+}

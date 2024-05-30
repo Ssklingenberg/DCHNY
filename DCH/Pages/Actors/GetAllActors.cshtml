@@ -1,0 +1,108 @@
+﻿@page
+@model DCH.Pages.Actors.GetAllActorsModel
+@{
+    ViewData["Title"] = "GetAllActors";
+}
+
+<h1>Administrer brugere</h1>
+
+<div class="Create-btn">
+    <a asp-page="CreateActor" asp-route-source="admin" class="btn btn-primary">Opret bruger</a>
+</div>
+
+<div id="search">
+    <form>
+        <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Søg" />
+
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Fornavn
+            </th>
+            <th>
+                Efternavn
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                By
+            </th>
+            <th>
+                Tlf. Nr.
+            </th>
+            <th>
+                Hund (Ja/Nej)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.actors)
+        {
+            <tr>
+                <td>
+                    @item.Value.Id
+                </td>
+                <td>
+                    @item.Value.FirstName
+                </td>
+                <td>
+                    @item.Value.LastName
+                </td>
+                <td>
+                    @item.Value.Email
+                </td>
+                <td>
+                    @item.Value.Address
+                </td>
+                <td>
+                    @item.Value.City
+                </td>
+                <td>
+                    @item.Value.PhoneNumber
+                </td>
+                <td>
+                    @if (item.Value.Dog) 
+                    {
+                        <span>
+                            &check;
+                        </span>
+                    }
+                    else 
+                    {
+                        <span>
+                            &minus;
+                        </span>
+                    }
+                </td>
+                <td>
+                    <div class="button">
+                        <p>
+                            <a asp-page="UpdateActor" asp-route-id="@item.Key" asp-route-source="admin" class="btn btn-secondary">Opdater</a>
+                        </p>
+                        <p>
+                            <a asp-page="DeleteActor" asp-route-id="@item.Key" asp-route-source="admin" class="btn btn-secondary">Slet</a>
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="back-btn">
+    <a asp-page="/Login/Administration" class="btn btn-primary">Tilbage til administration</a>
+</div>

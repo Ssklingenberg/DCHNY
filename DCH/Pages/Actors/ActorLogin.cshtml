@@ -1,0 +1,29 @@
+﻿@page
+@model ActorLoginModel
+@{
+    ViewData["Title"] = "ActorLogin";
+}
+
+<h1>Login som medlem</h1>
+
+<form method="post">
+
+    <div class="login-input">
+        <div class="form-group">
+            <label asp-for="@Model.actor.Email" class="control-label">Brugernavn</label>
+            <input asp-for="@Model.actor.Email" class="form-control" />
+            <span asp-validation-for="@Model.actor.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.actor.Password" class="control-label">Kode</label>
+            <input asp-for="@Model.actor.Password" class="form-control" type="password" />
+            <span asp-validation-for="@Model.actor.Password" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group button-container">
+        <input type="submit" value="Login" class="btn btn-primary" />
+        <a asp-page="/Actors/CreateActor" class="btn btn-primary btn medlem login">Opret bruger</a>
+    </div>
+    
+</form>

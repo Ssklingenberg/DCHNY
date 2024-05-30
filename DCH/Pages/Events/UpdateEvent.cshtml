@@ -1,0 +1,44 @@
+﻿@page
+@model DCH.Pages.Events.UpdateEventModel
+@{
+    ViewData["Title"] = "Update Event";
+}
+<h1>Update Event</h1>
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.Event.Id" class="control-label"></label>
+        <input asp-for="@Model.Event.Id" class="form-control" readonly/>
+        <span asp-validation-for="@Model.Event.Id" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Event.Name" class="control-label">Event navn (Må højst indholde 40 tegn)</label>
+        <input asp-for="@Model.Event.Name" class="form-control"/>
+        <span asp-validation-for="@Model.Event.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Event.Description" class="control-label">Beskrivelse (Må højst indholde 200 tegn)</label>
+        <input asp-for="@Model.Event.Description" class="form-control" />
+        <span asp-validation-for="@Model.Event.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Event.City" class="control-label">By (Må højst indholde 20 tegn)</label>
+        <input asp-for="@Model.Event.City" class="form-control" />
+        <span asp-validation-for="@Model.Event.City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="@Model.Event.MaxCount" class="control-label">Maks antal deltagere</label>
+    <input asp-for="@Model.Event.MaxCount" class="form-control" />
+    <span asp-validation-for="@Model.Event.MaxCount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Event.DateTime" class="control-label">Dato og klokkeslæt</label>
+        <input asp-for="@Model.Event.DateTime" class="form-control" />
+        <span asp-validation-for="@Model.Event.DateTime" class="text-danger"></span>
+    </div>
+    <div class="form-group button-container">
+        <input type="submit" value="Gem" class="btn btn-primary large-btn" />
+        <a asp-page="/Events/GetAllEvents" class="btn btn-secondary large-btn">Tilbage til event listen</a>
+    </div>
+</form>
+</div> 

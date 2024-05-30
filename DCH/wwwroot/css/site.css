@@ -1,0 +1,141 @@
+html {
+    font-size: 14px;
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+#search {
+    float: right;
+    width: 22%;
+}
+
+#CreateNewEvent {
+    float: left;
+}
+
+.button p {
+    margin: 2px;
+}
+
+.btn-secondary {
+    display: block;
+    width: 100px;
+    text-align: center;
+}
+
+.Create-btn {
+    float: left;
+    width: 50%;
+}
+
+.login {
+    text-align: right;
+}
+
+.admin-Btn {
+    display: flex;
+    gap: 10px; /* Juster mellemrum mellem knapperne som ønsket */
+    /*padding: 10px;
+    width: 100px;
+    align-content: center;*/
+}
+
+.AdminLogin {
+    float: right;
+    margin-right: 30px;
+}
+
+#footer-container {
+    float: left;
+    margin-left: 30px;
+}
+
+.login-input {
+    width: 40%;
+}
+
+.back-btn {
+    padding: 10px;
+}
+
+
+.home-container {
+    position: relative;
+    align-content:left;
+    /*text-align: center;*/
+    color: white;
+    width: 100%; /* Ensure the container spans the full width */
+    margin: 0; /* Remove any default margin */
+    padding: 25px;
+}
+
+.centeredH1 {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%)
+}
+
+.responsive-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.privacy {
+    text-align: center; /* Center text and inline elements horizontally */
+    margin: 0; /* Reset any default margin */
+    padding: 0; /* Reset any default padding */
+}
+
+    .privacy img {
+        display: inline-block; /* Ensure the image respects text alignment */
+        margin: 20px 0; /* Optional: to add some space around the image */
+    }
+
+#hund {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc; /* Tilføj en 1 pixel solid linje i bunden af .form-group */
+    margin-bottom: 20px; /* Kommentaren her er fjernet */
+}
+.button-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px; /* Juster mellemrum mellem knapperne som ønsket */
+}
+
+.large-btn {
+    flex: 1; /* Lad knapperne vokse for at fylde tilgængelig plads */
+    //height: auto;
+    //width: auto
+}
+.btn medlem login{
+    flex: 1; /* Lad knapperne vokse for at fylde tilgængelig plads */
+    //height: auto;
+    //width: auto
+}
+
+.bottom img {
+    display: inline-block;
+    align-content: center
+}

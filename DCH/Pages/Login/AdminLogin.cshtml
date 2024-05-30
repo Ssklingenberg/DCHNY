@@ -1,0 +1,27 @@
+﻿@page
+@model DCH.Pages.AdminLogin.AdminLoginModel
+@{
+    ViewData["Title"] = "AdminLogin";
+}
+
+<h1>Login som admin</h1>
+
+<form method="post">
+
+    <div class="login-input">
+    <div class="form-group">
+        <label asp-for="@Model.adminLogin.UserName" class="control-label">Brugernavn</label>
+        <input asp-for="@Model.adminLogin.UserName" class="form-control" />
+        <span asp-validation-for="@Model.adminLogin.UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.adminLogin.Password" class="control-label">Kode</label>
+        <input asp-for="@Model.adminLogin.Password" class="form-control" type="password"/>
+        <span asp-validation-for="@Model.adminLogin.Password" class="text-danger"></span>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary"/>
+    </div>
+</form>

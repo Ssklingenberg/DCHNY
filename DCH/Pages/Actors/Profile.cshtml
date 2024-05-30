@@ -1,0 +1,33 @@
+﻿@page
+@model DCH.Pages.Actors.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>Profil</h2>
+
+@if (Model.Actor != null)
+{
+    <div>
+        <p><strong>Fornavn:</strong> @Model.Actor.FirstName</p>
+        <p><strong>Efternavn:</strong> @Model.Actor.LastName</p>
+        <p><strong>E-mail:</strong> @Model.Actor.Email</p>
+        <p><strong>Adresse:</strong> @Model.Actor.Address</p>
+        <p><strong>By:</strong> @Model.Actor.City</p>
+        <p><strong>Tlf.nr.:</strong> @Model.Actor.PhoneNumber</p>
+        <p><strong>Hund:</strong> @(Model.Actor.Dog ? "Ja" : "Nej")</p>
+    </div>
+    <div class="form-group button-container">
+        <a asp-page="/Events/ReadOnlyEvents" asp-route-source="actor" asp-route-id="@Model.Actor.Id" class="btn btn-success">Se Events</a>
+        <!-- Tilføj link til opdatering af profil -->
+        <a asp-page="/Actors/UpdateActor" asp-route-id="@Model.Actor.Id" class="btn btn-primary">Opdater profil</a>
+        <!-- Tilføj link til sletning af profil -->
+        <a asp-page="/Actors/DeleteActor" asp-route-id="@Model.Actor.Id" class="btn btn-danger">Slet profil</a>
+
+        
+    </div>
+}
+else
+{
+    <p>User not logged in</p>
+}
